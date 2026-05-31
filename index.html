@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="css/style.css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <title>Barbearia</title>
+</head>
+
+<body>
+
+<header>
+  <nav class="navbar navbar-expand-lg">
+    <div class="container-fluid">
+      <img src="img/barbeiro.png">
+      <a class="navbar-brand text-light" href="index.html">DUNTER</a>
+
+      <button class="navbar-toggler text-white" type="button" data-bs-toggle="collapse" data-bs-target="#menu">
+        ☰
+      </button>
+
+      <div class="collapse navbar-collapse" id="menu">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link text-light" href="#" onclick="carregarPagina('home'); return false;">Home</a></li>
+          <li class="nav-item"><a class="nav-link text-light" href="#" onclick="carregarPagina('galeria')">Agendar</a></li>
+          <li class="nav-item"><a class="nav-link text-light" href="#" onclick="carregarPagina('sobre')">Sobre</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>
+
+<aside class="aside">
+  <h1>BEM VINDO<br>A DUNTER</h1>
+</aside>
+<main>
+
+  <section>
+
+    <div id="carouselExampleSlidesOnly" class="carousel slide" data-bs-ride="carousel">
+      <div class="carousel-inner">
+        <div class="carousel-item active">
+          <img src="img/aI1c6xEO-melhores-cabelos-masculinos-1024x596.webp" class="d-block w-100" alt="...">
+        </div>
+        <div class="carousel-item">
+          <img src="img/corte-de-cabelo-masculino-crespo-1080x675.jpeg" class="d-block w-100" alt="...">
+        </div>
+        <div class="carousel-item">
+          <img src="img/corte-de-cabelo-masculino.jpg" class="d-block w-100" alt="...">
+        </div>
+      </div>
+    </div>
+
+  </section>
+  <section id="paginas">
+
+  </section>
+
+</main>
+
+<footer class="footer">
+
+
+  <div class="footer-bottom">
+    <p>© 2026 Barbearia Dunter • Todos os direitos reservados</p>
+  </div>
+</footer>
+<script src="scripts.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
+
+
+<!--Serving!                               │
+   │                                          │
+   │   - Local:    http://localhost:3000      │
+   │   - Network:  http://192.168.56.1:3000
+-->

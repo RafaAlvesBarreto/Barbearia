@@ -1,0 +1,160 @@
+<!-- Botão flutuante -->
+  <button class="fab" onclick="abrirAgendamentos()">📅</button>
+  <!-- Modal de agendamentos -->
+  <div id="modalAgendamentos" class="modal">
+    <div class="modal-content">
+
+      <h2>Meus Agendamentos</h2>
+
+      <div id="listaAgendamentos" class="lista-agendamentos">
+        <!-- cards serão inseridos via JS -->
+      </div>
+
+      <button class="btn-glass" onclick="fecharAgendamentos()">Fechar</button>
+
+    </div>
+  </div>
+
+<style>
+  .card{
+  background: rgba(255, 255, 255, 0.4);
+  backdrop-filter: blur(15px) saturate(180%);
+  -webkit-backdrop-filter: blur(15px) saturate(180%);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 20px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  color: black;
+  padding: 20px;
+  }
+</style>
+  <!-- Modal principal -->
+  <div id="modal" class="modal">
+    <div class="modal-content">
+
+      <h2>Agendamento</h2>
+
+      <!-- calendário -->
+      <label>Selecione o dia:</label>
+      <input type="date" id="data" onchange="mostrarHorarios()">
+
+      <!-- horários -->
+      <div id="horarios" class="horarios"></div>
+
+      <!-- formulário -->
+      <input type="text" id="nome" placeholder="Nome">
+      <input type="tel" id="telefone" placeholder="Telefone">
+      <input type="email" id="email" placeholder="Email">
+
+      <!-- botões -->
+      <div class="botoes">
+        <button class="btn-glass" onclick="fecharModal()">Cancelar</button>
+        <button id="confirmar" class="btn-glass" disabled onclick="confirmar()">Confirmar</button>
+      </div>
+
+    </div>
+  </div>
+  <!-- Modal sucesso -->
+  <div id="sucesso" class="modal">
+    <div class="modal-content sucesso">
+      <h2>✅ Agendamento realizado!</h2>
+      <button onclick="fecharSucesso()">OK</button>
+    </div>
+  </div>
+
+  <section>
+    <div class="row row-cols-1 row-cols-md-3 g-4">
+      <div class="col">
+        <div class="card">
+          <img src="img/mrssy%20fringe.jpg" class="card-img-top" alt="...">
+          <div class="card-body">
+            <h5 class="card-title">Messy Fringe</h5>
+            <p class="card-text">Estilo de Corte Masculino que dá aquele toque descolado pro visual,
+              seja com cabelo liso, ondulado ou cacheado, vale pra todo tipo de fio!
+              O legal é que ela traz uma cara mais moderna e despojada, bem numa vibe mais jovial e urbana.
+              Além de estiloso, é um estilo digamos que fácil de manter, né?</p>
+          </div>
+          <li>30,90R$</li>
+          <button class="click" onclick="abrirModal(this)">Selecionar corte</button>
+        </div>
+      </div>
+      <div class="col">
+        <div class="card">
+          <img src="img/low%20mohawk.jpg" class="card-img-top" alt="...">
+          <div class="card-body">
+            <h5 class="card-title">Low Mohawk</h5>
+            <p class="card-text">expressa uma ousadia maior e até uma agressividade visual, dependendo do Estilo do Corte
+              Essa vibe das laterais bem raspadas, subindo pela cabeça sem degradê e contrastando com o volume moicano
+              no topo é o que mais se destaca, mas, caso você queira, pode dar a intenção do Penteado, com algo um pouco
+              mais discreto, com volume lateral e algo não tão contrastante assim</p>
+          </div>
+          <li>55,90R$</li>
+          <button class="click" onclick="abrirModal(this)">Selecionar corte</button>
+        </div>
+      </div>
+      <div class="col">
+        <div class="card">
+          <img src="img/middle%20part.jpg" class="card-img-top" alt="...">
+          <div class="card-body">
+            <h5 class="card-title">Middle Part</h5>
+            <p class="card-text">Sim, o Cabelo Partido no Meio! Só que não naquela estética tão Leonardo di Caprio em
+              Titanic ou Alex band do The Calling
+              Algo mais, digamos que, rebelde? Ou mais solto? Enfim!
+              Esse visual tá voltando com tudo, trazendo uma pegada retrô dos anos 90, mas com um toque moderno.</p>
+          </div>
+          <li>80,90R$</li>
+          <button class="click" onclick="abrirModal(this)">Selecionar corte</button>
+        </div>
+      </div>
+      <div class="col">
+        <div class="card">
+          <img src="img/Modern%20mullet.jpg" class="card-img-top" alt="...">
+          <div class="card-body">
+            <h5 class="card-title">Modern Mullet</h5>
+            <p class="card-text">Esse visual ousado traz aquele ar retrô dos anos 80, mas com um toque bem mais atual e
+              estiloso, combinado muitas vezes com uma franja mais curta ou um raspado bem marcado nas laterais, olha só!
+              E o melhor: funciona em qualquer tipo de cabelo, principalmente pros ondulados, essa estética do Mullet
+              fica algo realmente diferenciado!</p>
+          </div>
+          <li>60,90R$</li>
+          <button class="click" onclick="abrirModal(this)">Selecionar corte</button>
+        </div>
+      </div>
+    </div>
+  </section>
+<footer class="footer">
+  <div class="footer-container">
+
+    <!-- LOGO / NOME -->
+    <div class="footer-brand">
+      <h2>DUNTER</h2>
+      <p>Barbearia moderna • estilo e atitude</p>
+    </div>
+
+    <!-- LINKS -->
+    <div class="footer-links">
+      <h4>Navegação</h4>
+      <a href="#">Home</a>
+      <a href="#">Agendar</a>
+      <a href="#">Sobre</a>
+    </div>
+
+    <!-- CONTATO -->
+    <div class="footer-contact">
+      <h4>Contato</h4>
+      <p>📍 Joinville - SC</p>
+      <p>📞 (47) 99999-9999</p>
+      <p>✉ contato@dunter.com</p>
+    </div>
+
+    <!-- REDES -->
+    <div class="footer-social">
+      <h4>Redes</h4>
+      <a href="#">Instagram</a>
+      <a href="#">Facebook</a>
+      <a href="#">WhatsApp</a>
+    </div>
+
+  </div>
+
+</footer>
+

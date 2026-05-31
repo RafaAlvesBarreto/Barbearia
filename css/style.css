@@ -1,0 +1,448 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family:"JetBrains Mono Medium";
+}
+/* BACKGROUND */
+body {
+  position: relative; /* necessário pro before funcionar */
+  margin: 0;
+  min-height: 100vh;
+
+  background: url("../img/scissors-hair-trimmer-copy-space.jpg")
+  no-repeat center center;
+  background-size: cover;
+}
+/* camada translúcida por cima da imagem */
+body::before {
+  content: "";
+  position: fixed; /* cobre a tela inteira */
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+
+  background: rgba(60, 35, 20, 0.4); /* marrom translúcido */
+
+  backdrop-filter: blur(4px); /* efeito glass */
+  -webkit-backdrop-filter: blur(6px);
+
+  z-index: -1;
+}
+/* HEADER GLASS MARROM */
+header {
+  background: rgba(39, 20, 10, 0.55);
+  backdrop-filter: blur(20px) saturate(150%);
+  -webkit-backdrop-filter: blur(20px) saturate(150%);
+  border-bottom: 1px solid rgba(255,255,255,0.2);
+
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: 80px;
+  z-index: 1000;
+}
+/* ASIDE DESKTOP */
+.aside {
+  position: fixed;
+  top: 80px;
+  left: 0;
+  width: 250px;
+  height: calc(100vh - 80px);
+
+  background: rgba(39, 20, 10, 0.5);
+  backdrop-filter: blur(20px);
+  border-right: 1px solid rgba(255,255,255,0.2);
+  border-radius: 0 20px 20px 0;
+  color: white;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+
+
+  z-index: 10;
+}
+.aside h1 {
+  font-family: vintege darkness whiskey label;
+  font-size: 22px;
+}
+/*MAIN DESKTOP */
+main {
+  margin-left: 270px;
+  padding-top: 120px;
+  padding-right: 20px;
+}
+/* NAV IMG */
+nav img {
+  width: 50px;
+}
+/* MENU FECHADO */
+.navbar-collapse {
+  background: transparent;
+  backdrop-filter: none;
+}
+/* MENU ABERTO (AQUI ENTRA O GLASS) */
+.navbar-collapse.show {
+  background: rgba(39, 20, 10, 0.55);
+  backdrop-filter: blur(20px) saturate(150%);
+  -webkit-backdrop-filter: blur(20px) saturate(150%);
+
+  border-radius: 10px;
+  margin-top: 10px;
+  padding: 10px;
+}
+/* GRID */
+.row.row-cols-1.row-cols-md-3.g-4 {
+  margin: 10px;
+}
+/* CARD */
+.card.h-100 {
+  background: rgba(255, 255, 255, 0.4);
+  backdrop-filter: blur(15px) saturate(180%);
+  -webkit-backdrop-filter: blur(15px) saturate(180%);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 20px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  color: black;
+  padding: 20px;
+}
+/* RESPONSIVO */
+@media (max-width: 992px) {
+
+  body {
+    display: block; /*  REMOVE FLEX BUG */
+  }
+
+  /* COMPENSA HEADER FIXO */
+  body::before {
+    content: "";
+    display: block;
+    height: 80px; /* mesma altura do header */
+  }
+
+  /* ASIDE AGORA NÃO QUEBRA */
+  .aside {
+    position: relative;
+    width: 100%;
+    height: auto;
+
+    margin: 0; /*  remove conflito */
+    padding: 25px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    border-radius: 0;
+  }
+
+  /* MAIN AGORA RESPEITA O ASIDE */
+  main {
+    margin: 0;
+    padding: 20px;
+  }
+
+}
+/* FOOTER GLASS MARROM */
+.footer {
+  margin-top: 50px;
+  padding: 40px 20px 20px;
+
+  background: rgba(39, 20, 10, 0.6);
+  backdrop-filter: blur(20px) saturate(150%);
+  -webkit-backdrop-filter: blur(20px);
+
+  border-top: 1px solid rgba(255,255,255,0.2);
+  color: white;
+}
+/* CONTAINER */
+.footer-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 30px;
+}
+/* TITULOS */
+.footer h2,
+.footer h4 {
+  margin-bottom: 10px;
+}
+/* LINKS */
+.footer a {
+  display: block;
+  text-decoration: none;
+  color: rgba(255,255,255,0.8);
+  margin-bottom: 5px;
+  transition: 0.3s;
+}
+.footer a:hover {
+  color: white;
+  transform: translateX(5px);
+}
+/* TEXTO */
+.footer p {
+  font-size: 14px;
+  opacity: 0.8;
+}
+/* PARTE FINAL */
+.footer-bottom {
+  text-align: center;
+  margin-top: 30px;
+  padding-top: 10px;
+  border-top: 1px solid rgba(255,255,255,0.2);
+  font-size: 13px;
+  opacity: 0.7;
+}
+/* RESPONSIVO */
+@media (max-width: 768px) {
+
+  .footer-container {
+    text-align: center;
+  }
+
+  .footer a:hover {
+    transform: none;
+  }
+
+}
+                                     /* ========================= */
+                                               /*GALERIA*/
+.click {
+  background: rgba(101, 67, 33, 0.55); /* marrom terroso */
+  backdrop-filter: blur(20px) saturate(150%);
+  -webkit-backdrop-filter: blur(20px) saturate(150%);
+
+  color: white;
+  padding: 12px 24px;
+  border: none;
+  border-radius: 12px; /* bordas suaves */
+
+  cursor: pointer; /* mãozinha */
+
+  transition: all 0.3s ease; /* transição suave */
+}
+/* Efeito ao passar o mouse */
+.click:hover {
+  transform: scale(1.05); /* aumenta suavemente */
+  background: rgba(101, 67, 33, 0.7); /* leve variação do marrom */
+}
+/* Efeito ao clicar */
+.click:active {
+  transform: scale(0.97); /* leve "afundada" */
+}
+/* lista sem estilo padrão */
+.card ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+/* bolinha flutuante */
+.card li {
+  position: relative;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  text-align: center;
+
+  background: #383c2e;
+  color: #fff;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(15px) saturate(160%);
+
+  box-shadow:
+    0 8px 20px rgba(0,0,0,0.3),
+    inset 0 1px 1px rgba(255,255,255,0.1);
+
+  transition: all 0.3s ease;
+  animation: float 3s ease-in-out infinite;
+  margin: 15px;
+}
+/* efeito flutuante */
+.card li:hover {
+  transform: translateY(-8px) scale(1.05);
+}
+/* animação leve contínua */
+@keyframes float {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-6px); }
+  100% { transform: translateY(0px); }
+}
+/*MOdal*/
+body {
+  font-family: Arial;
+}
+                                    /* ========================= */
+                                            /*Confirmação*/
+/* overlay (fundo escuro com blur) */
+.modal {
+  display: none;
+  position: fixed;
+  inset: 0;
+
+  background: rgba(40, 25, 15, 0.35);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+/* caixa do modal (NÃO ocupa tela toda) */
+.modal-content {
+  width: 400px;
+  max-width: 40%;
+  padding: 20px;
+  border-radius: 20px;
+  background: rgba(101, 67, 33, 0.55);
+  backdrop-filter: blur(20px) saturate(150%);
+  -webkit-backdrop-filter: blur(20px) saturate(150%);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+  color: white;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  animation: fadeIn 0.3s ease;
+}
+/* animação */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.9) translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+/* base compartilhada */
+.btn-glass {
+  background: rgba(101, 67, 33, 0.55);
+  backdrop-filter: blur(20px) saturate(150%);
+  -webkit-backdrop-filter: blur(20px) saturate(150%);
+  border: none;
+  border-radius: 12px;
+  padding: 10px 16px;
+  color: white;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+/* hover */
+.btn-glass:hover {
+  transform: scale(1.05);
+  background: rgba(120, 80, 40, 0.65);
+}
+/* clique */
+.btn-glass:active {
+  transform: scale(0.97);
+}
+/* botão confirmar ativo */
+#confirmar.ativo {
+  background: rgba(40, 120, 60, 0.7); /* verde elegante */
+}
+/* botão desabilitado */
+#confirmar:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+.horarios button {
+  background: rgba(101, 67, 33, 0.55);
+  backdrop-filter: blur(20px) saturate(150%);
+  -webkit-backdrop-filter: blur(20px) saturate(150%);
+  border: none;
+  border-radius: 10px;
+  padding: 8px 12px;
+  color: white;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+/* hover */
+.horarios button:hover {
+  transform: scale(1.05);
+  background: rgba(120, 80, 40, 0.65);
+}
+/* botão selecionado */
+.horarios button.selecionado {
+  background: rgba(40, 120, 60, 0.7); /* verde destaque */
+  transform: scale(1.05);
+}
+/* botões desativados */
+.horarios button.desativado {
+  background: rgba(120, 120, 120, 0.4);
+  color: rgba(255,255,255,0.5);
+  cursor: not-allowed;
+  transform: none;
+}
+.modal-content button{
+  background: rgba(101, 67, 33, 0.55);
+  backdrop-filter: blur(20px) saturate(150%);
+  -webkit-backdrop-filter: blur(20px) saturate(150%);
+  border: none;
+  border-radius: 10px;
+  padding: 8px 12px;
+  color: white;
+  cursor: pointer;
+}
+
+                                /*==========================*/
+                                      /*Meus agendamentos*/
+/* botão flutuante */
+.fab {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+
+  background: rgba(101, 67, 33, 0.55);
+  backdrop-filter: blur(20px) saturate(150%);
+  -webkit-backdrop-filter: blur(20px) saturate(150%);
+
+  border: none;
+  color: white;
+  font-size: 24px;
+
+  cursor: pointer;
+  z-index: 10;
+
+  transition: all 0.3s ease;
+}
+
+.fab:hover {
+  transform: scale(1.1);
+}
+
+.fab:active {
+  transform: scale(0.95);
+}
+
+/* lista */
+.lista-agendamentos {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+/* card de agendamento */
+.card-agendamento {
+  background: rgba(101, 67, 33, 0.5);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+
+  border-radius: 15px;
+  padding: 12px;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+}
