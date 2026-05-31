@@ -1,92 +1,134 @@
- <style>
-    .card{
-      background: rgba(255, 255, 255, 0.4);
-      backdrop-filter: blur(15px) saturate(180%);
-      -webkit-backdrop-filter: blur(15px) saturate(180%);
-      border: 1px solid rgba(255, 255, 255, 0.2);
-      border-radius: 20px;
-      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
-      color: black;
-      padding: 20px;
-    }
-  </style>
+<!-- ── SOBRE ──
+     Para atualizar: edite os textos, missão, visão e valores abaixo.
+-->
+<section class="container mt-4">
+  <div class="sobre-card">
+    <h3>Sobre a Barbearia Dunter</h3>
 
-  <section class="container mt-5">
-    <div class="card">
-      <h3>Sobre a Barbearia Dunter</h3>
+    <p>
+      A Barbearia Dunter combina tradição e modernidade para oferecer uma experiência única em
+      cuidados masculinos. Nosso espaço foi pensado para proporcionar conforto, estilo e
+      atendimento de alta qualidade.
+    </p>
 
-      <p>
-        A Barbearia Dunter combina tradição e modernidade para oferecer uma experiência única em cuidados masculinos.
-        Nosso espaço foi pensado para proporcionar conforto, estilo e um atendimento de alta qualidade.
-      </p>
+    <p>
+      Trabalhamos com cortes modernos e clássicos, sempre respeitando o estilo e a personalidade
+      de cada cliente. Nossa equipe é formada por profissionais qualificados, focados em
+      entregar resultados precisos e satisfatórios.
+    </p>
 
-      <p>
-        Trabalhamos com cortes modernos e clássicos, sempre respeitando o estilo e a personalidade de cada cliente.
-        Nossa equipe é formada por profissionais qualificados, focados em entregar resultados precisos e satisfatórios.
-      </p>
-
-      <h5>Missão</h5>
-      <p>Oferecer serviços de excelência, elevando a autoestima e a confiança dos nossos clientes.</p>
-
-      <h5>Visão</h5>
-      <p>Ser referência em barbearia moderna, reconhecida pela qualidade e inovação.</p>
-
-      <h5>Valores</h5>
-      <ul>
-        <li>Qualidade e profissionalismo</li>
-        <li>Respeito ao cliente</li>
-        <li>Inovação constante</li>
-        <li>Compromisso com resultados</li>
-      </ul>
-    </div>
-  </section>
-
-  <!-- DIFERENCIAIS -->
-  <section class="container mt-5">
-    <div class="card">
-      <h3>Diferenciais</h3>
-      <p>
-        Na Dunter, cada detalhe importa. Desde o atendimento personalizado até a escolha dos melhores
-        produtos do mercado, tudo é pensado para entregar uma experiência premium. Nosso ambiente
-        combina conforto, estilo e tecnologia, garantindo que cada visita seja única.
-      </p>
-    </div>
-  </section>
-
-<footer class="footer">
-      <div class="footer-container">
-
-        <!-- LOGO / NOME -->
-        <div class="footer-brand">
-          <h2>DUNTER</h2>
-          <p>Barbearia moderna • estilo e atitude</p>
-        </div>
-
-        <!-- LINKS -->
-        <div class="footer-links">
-          <h4>Navegação</h4>
-          <a href="#">Home</a>
-          <a href="#">Agendar</a>
-          <a href="#">Sobre</a>
-        </div>
-
-        <!-- CONTATO -->
-        <div class="footer-contact">
-          <h4>Contato</h4>
-          <p>📍 Joinville - SC</p>
-          <p>📞 (47) 99999-9999</p>
-          <p>✉ contato@dunter.com</p>
-        </div>
-
-        <!-- REDES -->
-        <div class="footer-social">
-          <h4>Redes</h4>
-          <a href="#">Instagram</a>
-          <a href="#">Facebook</a>
-          <a href="#">WhatsApp</a>
-        </div>
-
+    <div class="sobre-grid">
+      <div>
+        <h5>Missão</h5>
+        <p>Oferecer serviços de excelência, elevando a autoestima e a confiança dos nossos clientes.</p>
       </div>
+      <div>
+        <h5>Visão</h5>
+        <p>Ser referência em barbearia moderna, reconhecida pela qualidade e inovação.</p>
+      </div>
+      <div>
+        <h5>Valores</h5>
+        <ul>
+          <li>Qualidade e profissionalismo</li>
+          <li>Respeito ao cliente</li>
+          <li>Inovação constante</li>
+          <li>Compromisso com resultados</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
 
-    </footer>
+<!-- ── DIFERENCIAIS ── -->
+<section class="container mt-4 mb-5">
+  <div class="sobre-card">
+    <h3>Nossos Diferenciais</h3>
+    <p>
+      Na Dunter, cada detalhe importa. Desde o atendimento personalizado até a escolha dos
+      melhores produtos do mercado, tudo é pensado para entregar uma experiência premium.
+      Nosso ambiente combina conforto, estilo e tecnologia, garantindo que cada visita seja única.
+    </p>
+  </div>
+</section>
 
+<!-- ── FOOTER ── -->
+<footer class="footer">
+  <div class="footer-container">
+
+    <div class="footer-brand">
+      <h2>DUNTER</h2>
+      <p>Barbearia moderna • estilo e atitude</p>
+    </div>
+
+    <div class="footer-links">
+      <h4>Navegação</h4>
+      <a href="#" onclick="carregarPagina('home'); return false;">Home</a>
+      <a href="#" onclick="carregarPagina('galeria'); return false;">Agendar</a>
+      <a href="#" onclick="carregarPagina('sobre'); return false;">Sobre</a>
+    </div>
+
+    <div class="footer-contact">
+      <h4>Contato</h4>
+      <!-- Os valores abaixo são atualizados automaticamente pelo CONFIG em scripts.js -->
+      <p>📍 <span data-config="endereco">Joinville - SC</span></p>
+      <p>📞 <span data-config="telefone">(47) 99999-9999</span></p>
+      <p>✉ <span data-config="email">contato@dunter.com</span></p>
+    </div>
+
+    <div class="footer-social">
+      <h4>Redes</h4>
+      <a href="#" data-config="instagram">Instagram</a>
+      <a href="#" data-config="facebook">Facebook</a>
+      <a href="#" data-config="whatsapp">WhatsApp</a>
+    </div>
+
+  </div>
+</footer>
+
+<style>
+  .sobre-card {
+    background: rgba(255, 255, 255, 0.12);
+    backdrop-filter: blur(15px) saturate(180%);
+    -webkit-backdrop-filter: blur(15px) saturate(180%);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 20px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
+    color: white;
+    padding: 28px 32px;
+  }
+
+  .sobre-card h3 {
+    font-family: 'Oswald', sans-serif;
+    letter-spacing: 2px;
+    color: #f0d9b5;
+    margin-bottom: 16px;
+  }
+
+  .sobre-card h5 {
+    font-family: 'Oswald', sans-serif;
+    color: #d4a96a;
+    margin-bottom: 6px;
+    margin-top: 4px;
+  }
+
+  .sobre-card p {
+    line-height: 1.7;
+    opacity: .9;
+    margin-bottom: 12px;
+  }
+
+  .sobre-card ul {
+    padding-left: 18px;
+    opacity: .85;
+    line-height: 1.9;
+  }
+
+  .sobre-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+    margin-top: 20px;
+    border-top: 1px solid rgba(255,255,255,0.15);
+    padding-top: 20px;
+  }
+</style>

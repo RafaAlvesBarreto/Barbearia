@@ -1,41 +1,45 @@
+/* ── RESET & TIPOGRAFIA ──────────────────────────────────────── */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family:"JetBrains Mono Medium";
 }
-/* BACKGROUND */
+
 body {
-  position: relative; /* necessário pro before funcionar */
-  margin: 0;
+  font-family: 'Roboto', 'Segoe UI', sans-serif;
+  font-weight: 400;
+  position: relative;
   min-height: 100vh;
 
   background: url("../img/scissors-hair-trimmer-copy-space.jpg")
-  no-repeat center center;
+  no-repeat center center fixed;
   background-size: cover;
 }
-/* camada translúcida por cima da imagem */
+
+/* Camada translúcida sobre o fundo */
 body::before {
   content: "";
-  position: fixed; /* cobre a tela inteira */
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-
-  background: rgba(60, 35, 20, 0.4); /* marrom translúcido */
-
-  backdrop-filter: blur(4px); /* efeito glass */
-  -webkit-backdrop-filter: blur(6px);
-
-  z-index: -1;
+  position: fixed;
+  inset: 0;
+  background: rgba(60, 35, 20, 0.45);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  z-index: 0;
 }
-/* HEADER GLASS MARROM */
+
+/* Garante que o conteúdo fique acima do overlay */
+header, aside, main, footer, section, .modal, .fab {
+  position: relative;
+  z-index: 1;
+}
+
+
+/* ── HEADER ──────────────────────────────────────────────────── */
 header {
-  background: rgba(39, 20, 10, 0.55);
+  background: rgba(39, 20, 10, 0.65);
   backdrop-filter: blur(20px) saturate(150%);
   -webkit-backdrop-filter: blur(20px) saturate(150%);
-  border-bottom: 1px solid rgba(255,255,255,0.2);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.15);
 
   position: fixed;
   top: 0;
@@ -43,7 +47,47 @@ header {
   height: 80px;
   z-index: 1000;
 }
-/* ASIDE DESKTOP */
+
+nav img {
+  width: 46px;
+  border-radius: 50%;
+}
+
+.navbar-brand {
+  font-family: 'Oswald', sans-serif;
+  font-size: 1.6rem;
+  letter-spacing: 3px;
+}
+
+/* Link do menu */
+.nav-btn {
+  font-family: 'Oswald', sans-serif;
+  letter-spacing: 1px;
+  font-size: .9rem;
+  transition: color .2s;
+}
+.nav-btn:hover {
+  color: #d4a96a !important;
+}
+
+/* Menu fechado */
+.navbar-collapse {
+  background: transparent;
+  backdrop-filter: none;
+}
+
+/* Menu aberto (mobile) */
+.navbar-collapse.show {
+  background: rgba(39, 20, 10, 0.65);
+  backdrop-filter: blur(20px) saturate(150%);
+  -webkit-backdrop-filter: blur(20px) saturate(150%);
+  border-radius: 10px;
+  margin-top: 10px;
+  padding: 10px;
+}
+
+
+/* ── ASIDE ───────────────────────────────────────────────────── */
 .aside {
   position: fixed;
   top: 80px;
@@ -53,7 +97,7 @@ header {
 
   background: rgba(39, 20, 10, 0.5);
   backdrop-filter: blur(20px);
-  border-right: 1px solid rgba(255,255,255,0.2);
+  border-right: 1px solid rgba(255, 255, 255, 0.15);
   border-radius: 0 20px 20px 0;
   color: white;
 
@@ -61,388 +105,432 @@ header {
   align-items: center;
   justify-content: center;
   text-align: center;
-
-
   z-index: 10;
 }
+
 .aside h1 {
-  font-family: vintege darkness whiskey label;
-  font-size: 22px;
+  font-family: 'Oswald', sans-serif;
+  font-size: 1.5rem;
+  font-weight: 700;
+  letter-spacing: 4px;
+  line-height: 1.6;
+  color: #f0d9b5;
 }
-/*MAIN DESKTOP */
+
+
+/* ── MAIN ────────────────────────────────────────────────────── */
 main {
   margin-left: 270px;
-  padding-top: 120px;
+  padding-top: 100px;
   padding-right: 20px;
+  padding-bottom: 20px;
 }
-/* NAV IMG */
-nav img {
-  width: 50px;
-}
-/* MENU FECHADO */
-.navbar-collapse {
-  background: transparent;
-  backdrop-filter: none;
-}
-/* MENU ABERTO (AQUI ENTRA O GLASS) */
-.navbar-collapse.show {
-  background: rgba(39, 20, 10, 0.55);
-  backdrop-filter: blur(20px) saturate(150%);
-  -webkit-backdrop-filter: blur(20px) saturate(150%);
 
-  border-radius: 10px;
-  margin-top: 10px;
-  padding: 10px;
+/* Carrossel com bordas arredondadas */
+.carousel {
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.35);
+  margin-bottom: 30px;
 }
-/* GRID */
-.row.row-cols-1.row-cols-md-3.g-4 {
-  margin: 10px;
+
+.carousel img {
+  max-height: 420px;
+  object-fit: cover;
 }
-/* CARD */
+
+
+/* ── CARDS ───────────────────────────────────────────────────── */
 .card.h-100 {
-  background: rgba(255, 255, 255, 0.4);
+  background: rgba(255, 255, 255, 0.15);
   backdrop-filter: blur(15px) saturate(180%);
   -webkit-backdrop-filter: blur(15px) saturate(180%);
   border: 1px solid rgba(255, 255, 255, 0.2);
   border-radius: 20px;
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
-  color: black;
-  padding: 20px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
+  color: white;
+  transition: transform .25s, box-shadow .25s;
 }
-/* RESPONSIVO */
+
+.card.h-100:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 14px 40px rgba(0, 0, 0, 0.25);
+}
+
+.card.h-100 .card-title {
+  font-family: 'Oswald', sans-serif;
+  letter-spacing: 1px;
+  color: #f0d9b5;
+}
+
+.row.row-cols-1.row-cols-md-3.g-4 {
+  margin: 10px 0;
+}
+
+
+/* ── GALERIA — BOTÃO SELECIONAR ──────────────────────────────── */
+.click {
+  background: rgba(101, 67, 33, 0.65);
+  backdrop-filter: blur(20px) saturate(150%);
+  -webkit-backdrop-filter: blur(20px) saturate(150%);
+  color: white;
+  padding: 10px 22px;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  font-family: 'Oswald', sans-serif;
+  letter-spacing: 1px;
+  transition: all 0.25s ease;
+  margin: 12px 0 4px;
+}
+
+.click:hover {
+  transform: scale(1.04);
+  background: rgba(130, 85, 40, 0.75);
+}
+
+.click:active {
+  transform: scale(0.97);
+}
+
+/* Preço — bolinha flutuante */
+.preco {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 62px;
+  height: 62px;
+  border-radius: 50%;
+  font-size: 13px;
+  font-weight: 500;
+  text-align: center;
+  background: rgba(56, 60, 46, 0.9);
+  color: #fff;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.3), inset 0 1px 1px rgba(255,255,255,0.1);
+  animation: float 3s ease-in-out infinite;
+  margin: 12px;
+}
+
+.preco:hover {
+  transform: translateY(-8px) scale(1.05);
+}
+
+@keyframes float {
+  0%   { transform: translateY(0px); }
+  50%  { transform: translateY(-6px); }
+  100% { transform: translateY(0px); }
+}
+
+
+/* ── MODAIS ──────────────────────────────────────────────────── */
+/*
+   ATENÇÃO: display: none aqui é intencional.
+   O JS usa element.style.display = "flex" para exibir.
+   NÃO adicione display: flex neste bloco — o modal ficaria sempre visível.
+*/
+.modal {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(30, 15, 5, 0.5);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  justify-content: center;
+  align-items: center;
+  z-index: 2000;
+}
+
+.modal-content {
+  width: 420px;
+  max-width: 92vw;
+  padding: 28px 24px;
+  border-radius: 20px;
+  background: rgba(80, 50, 25, 0.7);
+  backdrop-filter: blur(24px) saturate(160%);
+  -webkit-backdrop-filter: blur(24px) saturate(160%);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.5);
+  color: white;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  animation: fadeIn 0.25s ease;
+}
+
+.modal-content h2 {
+  font-family: 'Oswald', sans-serif;
+  letter-spacing: 2px;
+  color: #f0d9b5;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: scale(0.92) translateY(10px); }
+  to   { opacity: 1; transform: scale(1)    translateY(0); }
+}
+
+/* Inputs dentro do modal */
+.modal-content input {
+  background: rgba(255, 255, 255, 0.12);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  border-radius: 10px;
+  padding: 10px 14px;
+  color: white;
+  font-family: 'Roboto', sans-serif;
+  outline: none;
+  transition: border-color .2s;
+}
+
+.modal-content input::placeholder { color: rgba(255,255,255,0.5); }
+.modal-content input:focus        { border-color: #d4a96a; }
+
+/* Modal de sucesso */
+.modal-content.sucesso {
+  text-align: center;
+  gap: 20px;
+}
+
+
+/* ── BOTÕES GLASS ────────────────────────────────────────────── */
+.btn-glass {
+  background: rgba(101, 67, 33, 0.6);
+  backdrop-filter: blur(20px) saturate(150%);
+  -webkit-backdrop-filter: blur(20px) saturate(150%);
+  border: none;
+  border-radius: 12px;
+  padding: 10px 18px;
+  color: white;
+  font-family: 'Oswald', sans-serif;
+  letter-spacing: 1px;
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+.btn-glass:hover   { transform: scale(1.04); background: rgba(130, 85, 40, 0.7); }
+.btn-glass:active  { transform: scale(0.97); }
+
+/* Botão confirmar */
+#confirmar.ativo    { background: rgba(35, 110, 55, 0.8); }
+#confirmar:disabled { opacity: 0.4; cursor: not-allowed; }
+
+/* Botões de linha de rodapé do modal */
+.botoes { display: flex; gap: 10px; justify-content: flex-end; }
+
+
+/* ── HORÁRIOS ────────────────────────────────────────────────── */
+.horarios { display: flex; flex-wrap: wrap; gap: 8px; }
+
+.horarios p { width: 100%; margin-bottom: 4px; font-size: 13px; opacity: .8; }
+
+.horarios button {
+  background: rgba(101, 67, 33, 0.55);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: none;
+  border-radius: 10px;
+  padding: 8px 14px;
+  color: white;
+  cursor: pointer;
+  font-family: 'Roboto', sans-serif;
+  transition: all 0.2s ease;
+}
+
+.horarios button:hover         { transform: scale(1.06); background: rgba(130, 85, 40, 0.7); }
+.horarios button.selecionado   { background: rgba(35, 110, 55, 0.8); transform: scale(1.05); }
+.horarios button.desativado    { background: rgba(120, 120, 120, 0.35); color: rgba(255,255,255,0.4); cursor: not-allowed; transform: none; }
+.horarios button:disabled      { background: rgba(90, 90, 90, 0.35); color: rgba(255,255,255,0.3); cursor: not-allowed; transform: none; }
+
+.modal-content button:not(.btn-glass):not(.btn-cancelar) {
+  background: rgba(101, 67, 33, 0.6);
+  backdrop-filter: blur(20px);
+  border: none;
+  border-radius: 10px;
+  padding: 8px 14px;
+  color: white;
+  cursor: pointer;
+  font-family: 'Oswald', sans-serif;
+  letter-spacing: 1px;
+  transition: all .2s;
+}
+.modal-content button:not(.btn-glass):not(.btn-cancelar):hover {
+  background: rgba(130, 85, 40, 0.7);
+}
+
+
+/* ── BOTÃO FLUTUANTE (FAB) ───────────────────────────────────── */
+.fab {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  width: 58px;
+  height: 58px;
+  border-radius: 50%;
+  background: rgba(101, 67, 33, 0.75);
+  backdrop-filter: blur(20px) saturate(150%);
+  -webkit-backdrop-filter: blur(20px) saturate(150%);
+  border: 1px solid rgba(255,255,255,0.2);
+  color: white;
+  font-size: 22px;
+  cursor: pointer;
+  z-index: 100;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.35);
+  transition: all 0.25s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.fab:hover  { transform: scale(1.1); }
+.fab:active { transform: scale(0.95); }
+
+
+/* ── LISTA DE AGENDAMENTOS ───────────────────────────────────── */
+.lista-agendamentos { display: flex; flex-direction: column; gap: 10px; }
+
+.sem-agendamentos {
+  text-align: center;
+  opacity: .65;
+  padding: 10px 0;
+}
+
+.card-agendamento {
+  background: rgba(101, 67, 33, 0.55);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-radius: 14px;
+  padding: 12px 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 4px 14px rgba(0,0,0,0.25);
+  gap: 10px;
+}
+
+.agend-info {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.agend-info strong { font-size: 14px; }
+.agend-info small  { opacity: .75; font-size: 12px; }
+
+.agend-acoes {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.agend-valor { font-size: 14px; font-weight: 500; white-space: nowrap; }
+
+.btn-cancelar {
+  background: rgba(180, 40, 40, 0.55);
+  border: none;
+  border-radius: 8px;
+  color: white;
+  width: 28px;
+  height: 28px;
+  font-size: 12px;
+  cursor: pointer;
+  transition: background .2s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.btn-cancelar:hover { background: rgba(210, 50, 50, 0.75); }
+
+
+/* ── FOOTER ──────────────────────────────────────────────────── */
+.footer {
+  margin-top: 50px;
+  padding: 40px 20px 20px;
+  background: rgba(39, 20, 10, 0.7);
+  backdrop-filter: blur(20px) saturate(150%);
+  -webkit-backdrop-filter: blur(20px);
+  border-top: 1px solid rgba(255,255,255,0.15);
+  color: white;
+  position: relative;
+  z-index: 1;
+}
+
+/* Footer fixo no index.html (apenas copyright) */
+.footer-index {
+  padding: 14px 20px;
+  margin-top: 0;
+}
+
+.footer-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 30px;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.footer h2 { font-family: 'Oswald', sans-serif; letter-spacing: 3px; color: #f0d9b5; }
+.footer h4 { font-family: 'Oswald', sans-serif; letter-spacing: 1px; margin-bottom: 10px; color: #d4a96a; }
+
+.footer a {
+  display: block;
+  text-decoration: none;
+  color: rgba(255,255,255,0.75);
+  margin-bottom: 6px;
+  transition: 0.25s;
+}
+
+.footer a:hover {
+  color: #f0d9b5;
+  transform: translateX(5px);
+}
+
+.footer p { font-size: 14px; opacity: 0.8; margin-bottom: 5px; }
+
+.footer-bottom {
+  text-align: center;
+  margin-top: 30px;
+  padding-top: 12px;
+  border-top: 1px solid rgba(255,255,255,0.15);
+  font-size: 13px;
+  opacity: 0.65;
+}
+
+.footer-index .footer-bottom {
+  margin-top: 0;
+  border-top: none;
+  padding-top: 0;
+}
+
+
+/* ── RESPONSIVO ──────────────────────────────────────────────── */
 @media (max-width: 992px) {
 
-  body {
-    display: block; /*  REMOVE FLEX BUG */
-  }
-
-  /* COMPENSA HEADER FIXO */
-  body::before {
-    content: "";
-    display: block;
-    height: 80px; /* mesma altura do header */
-  }
-
-  /* ASIDE AGORA NÃO QUEBRA */
   .aside {
     position: relative;
     width: 100%;
     height: auto;
-
-    margin: 0; /*  remove conflito */
-    padding: 25px;
-
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
+    padding: 22px;
     border-radius: 0;
+    z-index: 1;
   }
 
-  /* MAIN AGORA RESPEITA O ASIDE */
   main {
     margin: 0;
     padding: 20px;
   }
 
-}
-/* FOOTER GLASS MARROM */
-.footer {
-  margin-top: 50px;
-  padding: 40px 20px 20px;
+  /* compensa o header fixo */
+  body > aside,
+  body > main {
+    margin-top: 0;
+  }
 
-  background: rgba(39, 20, 10, 0.6);
-  backdrop-filter: blur(20px) saturate(150%);
-  -webkit-backdrop-filter: blur(20px);
+  header + aside {
+    margin-top: 80px;
+  }
+}
 
-  border-top: 1px solid rgba(255,255,255,0.2);
-  color: white;
-}
-/* CONTAINER */
-.footer-container {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 30px;
-}
-/* TITULOS */
-.footer h2,
-.footer h4 {
-  margin-bottom: 10px;
-}
-/* LINKS */
-.footer a {
-  display: block;
-  text-decoration: none;
-  color: rgba(255,255,255,0.8);
-  margin-bottom: 5px;
-  transition: 0.3s;
-}
-.footer a:hover {
-  color: white;
-  transform: translateX(5px);
-}
-/* TEXTO */
-.footer p {
-  font-size: 14px;
-  opacity: 0.8;
-}
-/* PARTE FINAL */
-.footer-bottom {
-  text-align: center;
-  margin-top: 30px;
-  padding-top: 10px;
-  border-top: 1px solid rgba(255,255,255,0.2);
-  font-size: 13px;
-  opacity: 0.7;
-}
-/* RESPONSIVO */
 @media (max-width: 768px) {
-
-  .footer-container {
-    text-align: center;
-  }
-
-  .footer a:hover {
-    transform: none;
-  }
-
-}
-                                     /* ========================= */
-                                               /*GALERIA*/
-.click {
-  background: rgba(101, 67, 33, 0.55); /* marrom terroso */
-  backdrop-filter: blur(20px) saturate(150%);
-  -webkit-backdrop-filter: blur(20px) saturate(150%);
-
-  color: white;
-  padding: 12px 24px;
-  border: none;
-  border-radius: 12px; /* bordas suaves */
-
-  cursor: pointer; /* mãozinha */
-
-  transition: all 0.3s ease; /* transição suave */
-}
-/* Efeito ao passar o mouse */
-.click:hover {
-  transform: scale(1.05); /* aumenta suavemente */
-  background: rgba(101, 67, 33, 0.7); /* leve variação do marrom */
-}
-/* Efeito ao clicar */
-.click:active {
-  transform: scale(0.97); /* leve "afundada" */
-}
-/* lista sem estilo padrão */
-.card ul {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
-/* bolinha flutuante */
-.card li {
-  position: relative;
-  width: 60px;
-  height: 60px;
-  border-radius: 50%;
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 14px;
-  text-align: center;
-
-  background: #383c2e;
-  color: #fff;
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(15px) saturate(160%);
-
-  box-shadow:
-    0 8px 20px rgba(0,0,0,0.3),
-    inset 0 1px 1px rgba(255,255,255,0.1);
-
-  transition: all 0.3s ease;
-  animation: float 3s ease-in-out infinite;
-  margin: 15px;
-}
-/* efeito flutuante */
-.card li:hover {
-  transform: translateY(-8px) scale(1.05);
-}
-/* animação leve contínua */
-@keyframes float {
-  0% { transform: translateY(0px); }
-  50% { transform: translateY(-6px); }
-  100% { transform: translateY(0px); }
-}
-/*MOdal*/
-body {
-  font-family: Arial;
-}
-                                    /* ========================= */
-                                            /*Confirmação*/
-/* overlay (fundo escuro com blur) */
-.modal {
-  display: none;
-  position: fixed;
-  inset: 0;
-
-  background: rgba(40, 25, 15, 0.35);
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
-
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-/* caixa do modal (NÃO ocupa tela toda) */
-.modal-content {
-  width: 400px;
-  max-width: 40%;
-  padding: 20px;
-  border-radius: 20px;
-  background: rgba(101, 67, 33, 0.55);
-  backdrop-filter: blur(20px) saturate(150%);
-  -webkit-backdrop-filter: blur(20px) saturate(150%);
-  box-shadow: 0 10px 30px rgba(0,0,0,0.4);
-  color: white;
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-  animation: fadeIn 0.3s ease;
-}
-/* animação */
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: scale(0.9) translateY(10px);
-  }
-  to {
-    opacity: 1;
-    transform: scale(1) translateY(0);
-  }
-}
-/* base compartilhada */
-.btn-glass {
-  background: rgba(101, 67, 33, 0.55);
-  backdrop-filter: blur(20px) saturate(150%);
-  -webkit-backdrop-filter: blur(20px) saturate(150%);
-  border: none;
-  border-radius: 12px;
-  padding: 10px 16px;
-  color: white;
-  cursor: pointer;
-  transition: all 0.3s ease;
-}
-/* hover */
-.btn-glass:hover {
-  transform: scale(1.05);
-  background: rgba(120, 80, 40, 0.65);
-}
-/* clique */
-.btn-glass:active {
-  transform: scale(0.97);
-}
-/* botão confirmar ativo */
-#confirmar.ativo {
-  background: rgba(40, 120, 60, 0.7); /* verde elegante */
-}
-/* botão desabilitado */
-#confirmar:disabled {
-  opacity: 0.4;
-  cursor: not-allowed;
-}
-.horarios button {
-  background: rgba(101, 67, 33, 0.55);
-  backdrop-filter: blur(20px) saturate(150%);
-  -webkit-backdrop-filter: blur(20px) saturate(150%);
-  border: none;
-  border-radius: 10px;
-  padding: 8px 12px;
-  color: white;
-  cursor: pointer;
-  transition: all 0.3s ease;
-}
-/* hover */
-.horarios button:hover {
-  transform: scale(1.05);
-  background: rgba(120, 80, 40, 0.65);
-}
-/* botão selecionado */
-.horarios button.selecionado {
-  background: rgba(40, 120, 60, 0.7); /* verde destaque */
-  transform: scale(1.05);
-}
-/* botões desativados */
-.horarios button.desativado {
-  background: rgba(120, 120, 120, 0.4);
-  color: rgba(255,255,255,0.5);
-  cursor: not-allowed;
-  transform: none;
-}
-.modal-content button{
-  background: rgba(101, 67, 33, 0.55);
-  backdrop-filter: blur(20px) saturate(150%);
-  -webkit-backdrop-filter: blur(20px) saturate(150%);
-  border: none;
-  border-radius: 10px;
-  padding: 8px 12px;
-  color: white;
-  cursor: pointer;
-}
-
-                                /*==========================*/
-                                      /*Meus agendamentos*/
-/* botão flutuante */
-.fab {
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
-
-  width: 60px;
-  height: 60px;
-  border-radius: 50%;
-
-  background: rgba(101, 67, 33, 0.55);
-  backdrop-filter: blur(20px) saturate(150%);
-  -webkit-backdrop-filter: blur(20px) saturate(150%);
-
-  border: none;
-  color: white;
-  font-size: 24px;
-
-  cursor: pointer;
-  z-index: 10;
-
-  transition: all 0.3s ease;
-}
-
-.fab:hover {
-  transform: scale(1.1);
-}
-
-.fab:active {
-  transform: scale(0.95);
-}
-
-/* lista */
-.lista-agendamentos {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-}
-
-/* card de agendamento */
-.card-agendamento {
-  background: rgba(101, 67, 33, 0.5);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
-
-  border-radius: 15px;
-  padding: 12px;
-
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-
-  box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+  .footer a:hover { transform: none; }
+  .modal-content  { padding: 20px 16px; }
 }

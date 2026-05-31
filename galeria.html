@@ -1,160 +1,215 @@
-<!-- Botão flutuante -->
-  <button class="fab" onclick="abrirAgendamentos()">📅</button>
-  <!-- Modal de agendamentos -->
-  <div id="modalAgendamentos" class="modal">
-    <div class="modal-content">
+<!-- ── BOTÃO FLUTUANTE — meus agendamentos ── -->
+<button class="fab" onclick="abrirAgendamentos()" title="Meus agendamentos">📅</button>
 
-      <h2>Meus Agendamentos</h2>
-
-      <div id="listaAgendamentos" class="lista-agendamentos">
-        <!-- cards serão inseridos via JS -->
-      </div>
-
-      <button class="btn-glass" onclick="fecharAgendamentos()">Fechar</button>
-
-    </div>
+<!-- ── MODAL: LISTA DE AGENDAMENTOS ── -->
+<div id="modalAgendamentos" class="modal">
+  <div class="modal-content">
+    <h2>Meus Agendamentos</h2>
+    <div id="listaAgendamentos" class="lista-agendamentos"></div>
+    <button class="btn-glass" onclick="fecharAgendamentos()">Fechar</button>
   </div>
+</div>
 
-<style>
-  .card{
-  background: rgba(255, 255, 255, 0.4);
-  backdrop-filter: blur(15px) saturate(180%);
-  -webkit-backdrop-filter: blur(15px) saturate(180%);
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  border-radius: 20px;
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
-  color: black;
-  padding: 20px;
-  }
-</style>
-  <!-- Modal principal -->
-  <div id="modal" class="modal">
-    <div class="modal-content">
+<!-- ── MODAL: AGENDAMENTO ── -->
+<div id="modal" class="modal">
+  <div class="modal-content">
 
-      <h2>Agendamento</h2>
+    <h2>Agendar Corte</h2>
 
-      <!-- calendário -->
-      <label>Selecione o dia:</label>
-      <input type="date" id="data" onchange="mostrarHorarios()">
+    <!-- data -->
+    <label>Selecione o dia:</label>
+    <input type="date" id="data">
 
-      <!-- horários -->
-      <div id="horarios" class="horarios"></div>
+    <!-- horários — preenchidos pelo JS via CONFIG.horarios -->
+    <div id="horarios" class="horarios"></div>
 
-      <!-- formulário -->
-      <input type="text" id="nome" placeholder="Nome">
-      <input type="tel" id="telefone" placeholder="Telefone">
-      <input type="email" id="email" placeholder="Email">
+    <!-- formulário -->
+    <input type="text"  id="nome"      placeholder="Seu nome">
+    <input type="tel"   id="telefone"  placeholder="Telefone">
+    <input type="email" id="email"     placeholder="E-mail">
 
-      <!-- botões -->
-      <div class="botoes">
-        <button class="btn-glass" onclick="fecharModal()">Cancelar</button>
-        <button id="confirmar" class="btn-glass" disabled onclick="confirmar()">Confirmar</button>
-      </div>
-
+    <!-- botões -->
+    <div class="botoes">
+      <button class="btn-glass" onclick="fecharModal()">Cancelar</button>
+      <button id="confirmar" class="btn-glass" disabled onclick="confirmar()">Confirmar</button>
     </div>
+
   </div>
-  <!-- Modal sucesso -->
-  <div id="sucesso" class="modal">
-    <div class="modal-content sucesso">
-      <h2>✅ Agendamento realizado!</h2>
-      <button onclick="fecharSucesso()">OK</button>
-    </div>
-  </div>
+</div>
 
-  <section>
-    <div class="row row-cols-1 row-cols-md-3 g-4">
-      <div class="col">
-        <div class="card">
-          <img src="img/mrssy%20fringe.jpg" class="card-img-top" alt="...">
-          <div class="card-body">
-            <h5 class="card-title">Messy Fringe</h5>
-            <p class="card-text">Estilo de Corte Masculino que dá aquele toque descolado pro visual,
-              seja com cabelo liso, ondulado ou cacheado, vale pra todo tipo de fio!
-              O legal é que ela traz uma cara mais moderna e despojada, bem numa vibe mais jovial e urbana.
-              Além de estiloso, é um estilo digamos que fácil de manter, né?</p>
-          </div>
-          <li>30,90R$</li>
-          <button class="click" onclick="abrirModal(this)">Selecionar corte</button>
+<!-- ── MODAL: SUCESSO ── -->
+<div id="sucesso" class="modal">
+  <div class="modal-content sucesso">
+    <h2>✅ Agendamento realizado!</h2>
+    <p>Seu horário foi salvo com sucesso.</p>
+    <button onclick="fecharSucesso()">OK</button>
+  </div>
+</div>
+
+<!-- ── CARDS DE CORTES ──
+     Para atualizar: edite o nome, descrição, preço e imagem de cada card abaixo.
+     Troque o src da <img> pelo caminho da nova imagem na pasta img/
+-->
+<section class="galeria-section">
+  <div class="row row-cols-1 row-cols-md-2 row-cols-lg-4 g-4 p-3">
+
+    <!-- CORTE 1 -->
+    <div class="col">
+      <div class="card galeria-card">
+        <img src="img/mrssy%20fringe.jpg" class="card-img-top" alt="Messy Fringe">
+        <div class="card-body">
+          <h5 class="card-title">Messy Fringe</h5>
+          <p class="card-text">Estilo descolado que funciona em cabelos lisos, ondulados ou cacheados.
+            Traz uma vibe moderna e despojada, fácil de manter.</p>
         </div>
-      </div>
-      <div class="col">
-        <div class="card">
-          <img src="img/low%20mohawk.jpg" class="card-img-top" alt="...">
-          <div class="card-body">
-            <h5 class="card-title">Low Mohawk</h5>
-            <p class="card-text">expressa uma ousadia maior e até uma agressividade visual, dependendo do Estilo do Corte
-              Essa vibe das laterais bem raspadas, subindo pela cabeça sem degradê e contrastando com o volume moicano
-              no topo é o que mais se destaca, mas, caso você queira, pode dar a intenção do Penteado, com algo um pouco
-              mais discreto, com volume lateral e algo não tão contrastante assim</p>
-          </div>
-          <li>55,90R$</li>
-          <button class="click" onclick="abrirModal(this)">Selecionar corte</button>
-        </div>
-      </div>
-      <div class="col">
-        <div class="card">
-          <img src="img/middle%20part.jpg" class="card-img-top" alt="...">
-          <div class="card-body">
-            <h5 class="card-title">Middle Part</h5>
-            <p class="card-text">Sim, o Cabelo Partido no Meio! Só que não naquela estética tão Leonardo di Caprio em
-              Titanic ou Alex band do The Calling
-              Algo mais, digamos que, rebelde? Ou mais solto? Enfim!
-              Esse visual tá voltando com tudo, trazendo uma pegada retrô dos anos 90, mas com um toque moderno.</p>
-          </div>
-          <li>80,90R$</li>
-          <button class="click" onclick="abrirModal(this)">Selecionar corte</button>
-        </div>
-      </div>
-      <div class="col">
-        <div class="card">
-          <img src="img/Modern%20mullet.jpg" class="card-img-top" alt="...">
-          <div class="card-body">
-            <h5 class="card-title">Modern Mullet</h5>
-            <p class="card-text">Esse visual ousado traz aquele ar retrô dos anos 80, mas com um toque bem mais atual e
-              estiloso, combinado muitas vezes com uma franja mais curta ou um raspado bem marcado nas laterais, olha só!
-              E o melhor: funciona em qualquer tipo de cabelo, principalmente pros ondulados, essa estética do Mullet
-              fica algo realmente diferenciado!</p>
-          </div>
-          <li>60,90R$</li>
-          <button class="click" onclick="abrirModal(this)">Selecionar corte</button>
+        <div class="card-footer-custom">
+          <!-- ← Altere o preço aqui -->
+          <span class="preco">R$ 30,90</span>
+          <button class="click" onclick="abrirModal(this)">Selecionar</button>
         </div>
       </div>
     </div>
-  </section>
+
+    <!-- CORTE 2 -->
+    <div class="col">
+      <div class="card galeria-card">
+        <img src="img/low%20mohawk.jpg" class="card-img-top" alt="Low Mohawk">
+        <div class="card-body">
+          <h5 class="card-title">Low Mohawk</h5>
+          <p class="card-text">Laterais raspadas contrastando com volume no topo. Ousado e marcante,
+            pode ser suavizado para um visual mais discreto.</p>
+        </div>
+        <div class="card-footer-custom">
+          <!-- ← Altere o preço aqui -->
+          <span class="preco">R$ 55,90</span>
+          <button class="click" onclick="abrirModal(this)">Selecionar</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- CORTE 3 -->
+    <div class="col">
+      <div class="card galeria-card">
+        <img src="img/middle%20part.jpg" class="card-img-top" alt="Middle Part">
+        <div class="card-body">
+          <h5 class="card-title">Middle Part</h5>
+          <p class="card-text">O cabelo partido no meio voltou com tudo. Pegada retrô dos anos 90
+            com toque moderno — rebelde e solto na medida certa.</p>
+        </div>
+        <div class="card-footer-custom">
+          <!-- ← Altere o preço aqui -->
+          <span class="preco">R$ 80,90</span>
+          <button class="click" onclick="abrirModal(this)">Selecionar</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- CORTE 4 -->
+    <div class="col">
+      <div class="card galeria-card">
+        <img src="img/Modern%20mullet.jpg" class="card-img-top" alt="Modern Mullet">
+        <div class="card-body">
+          <h5 class="card-title">Modern Mullet</h5>
+          <p class="card-text">Ar retrô dos anos 80 com um toque atual e estiloso. Funciona em
+            qualquer tipo de cabelo — especialmente nos ondulados.</p>
+        </div>
+        <div class="card-footer-custom">
+          <!-- ← Altere o preço aqui -->
+          <span class="preco">R$ 60,90</span>
+          <button class="click" onclick="abrirModal(this)">Selecionar</button>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ── FOOTER ── -->
 <footer class="footer">
   <div class="footer-container">
 
-    <!-- LOGO / NOME -->
     <div class="footer-brand">
       <h2>DUNTER</h2>
       <p>Barbearia moderna • estilo e atitude</p>
     </div>
 
-    <!-- LINKS -->
     <div class="footer-links">
       <h4>Navegação</h4>
-      <a href="#">Home</a>
-      <a href="#">Agendar</a>
-      <a href="#">Sobre</a>
+      <a href="#" onclick="carregarPagina('home'); return false;">Home</a>
+      <a href="#" onclick="carregarPagina('galeria'); return false;">Agendar</a>
+      <a href="#" onclick="carregarPagina('sobre'); return false;">Sobre</a>
     </div>
 
-    <!-- CONTATO -->
     <div class="footer-contact">
       <h4>Contato</h4>
-      <p>📍 Joinville - SC</p>
-      <p>📞 (47) 99999-9999</p>
-      <p>✉ contato@dunter.com</p>
+      <!-- Os valores abaixo são atualizados automaticamente pelo CONFIG em scripts.js -->
+      <p>📍 <span data-config="endereco">Joinville - SC</span></p>
+      <p>📞 <span data-config="telefone">(47) 99999-9999</span></p>
+      <p>✉ <span data-config="email">contato@dunter.com</span></p>
     </div>
 
-    <!-- REDES -->
     <div class="footer-social">
       <h4>Redes</h4>
-      <a href="#">Instagram</a>
-      <a href="#">Facebook</a>
-      <a href="#">WhatsApp</a>
+      <a href="#" data-config="instagram">Instagram</a>
+      <a href="#" data-config="facebook">Facebook</a>
+      <a href="#" data-config="whatsapp">WhatsApp</a>
     </div>
 
   </div>
-
 </footer>
 
+<style>
+  /* Estilos exclusivos da galeria */
+  .galeria-card {
+    background: rgba(255, 255, 255, 0.12);
+    backdrop-filter: blur(15px) saturate(180%);
+    -webkit-backdrop-filter: blur(15px) saturate(180%);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 20px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
+    color: white;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    transition: transform .25s, box-shadow .25s;
+  }
+
+  .galeria-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 14px 40px rgba(0, 0, 0, 0.3);
+  }
+
+  .galeria-card .card-img-top {
+    height: 200px;
+    object-fit: cover;
+  }
+
+  .galeria-card .card-body {
+    flex: 1;
+    padding: 16px;
+  }
+
+  .galeria-card .card-title {
+    font-family: 'Oswald', sans-serif;
+    letter-spacing: 1px;
+    color: #f0d9b5;
+    margin-bottom: 8px;
+  }
+
+  .galeria-card .card-text {
+    font-size: 13.5px;
+    line-height: 1.5;
+    opacity: .85;
+  }
+
+  .card-footer-custom {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 12px 16px 16px;
+  }
+
+  .galeria-section {
+    padding-top: 10px;
+  }
+</style>

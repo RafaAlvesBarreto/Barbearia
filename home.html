@@ -1,64 +1,80 @@
-<div class="row row-cols-1 row-cols-md-3 g-4">
+<!-- ── CARDS DE CONTEÚDO ──
+     Para atualizar: edite os títulos, textos e imagens dos cards abaixo.
+-->
+<section class="container-fluid px-3 pt-3">
+  <div class="row row-cols-1 row-cols-md-3 g-4">
+
+    <!-- CARD 1 -->
     <div class="col">
       <div class="card h-100">
-        <img src="img/card1.jpg" class="card-img-top" alt="...">
+        <img src="img/card1.jpg" class="card-img-top" alt="Cortes e Moda">
         <div class="card-body">
           <h5 class="card-title">Cortes e Moda</h5>
-          <p class="card-text">Os cortes de cabelo masculino têm desempenhado um papel significativo na moda e na identidade masculina ao longo dos anos. Desde os antigos estilos clássicos até as tendências modernas, os cortes de cabelo refletem a evolução das preferências culturais e sociais</p>
+          <p class="card-text">Os cortes de cabelo masculino têm desempenhado um papel significativo na
+            moda e na identidade masculina ao longo dos anos. Desde estilos clássicos até tendências
+            modernas, os cortes refletem a evolução das preferências culturais e sociais.</p>
         </div>
       </div>
     </div>
+
+    <!-- CARD 2 -->
     <div class="col">
       <div class="card h-100">
-        <img src="img/card3.webp" class="card-img-top" alt="...">
+        <img src="img/card3.webp" class="card-img-top" alt="Penteado Social Curto">
         <div class="card-body">
-          <h5 class="card-title">Penteado Social Curto (Comb-Over Curto)</h5>
-          <p class="card-text">O Penteado Social Curto é um penteado lateral curto (2-3 cm) com risca, elegante para Brasília ou Lisboa, disfarçando cabelo ralo. É formal, mas menos casual e pode expor o couro cabeludo. Clássico dos anos 1950, é corporativo na lusofonia.</p>
+          <h5 class="card-title">Penteado Social Curto</h5>
+          <p class="card-text">O Penteado Social Curto é lateral curto (2–3 cm) com risca, elegante e
+            versátil. Clássico dos anos 1950, é uma escolha corporativa atemporal, com um ar sóbrio
+            e refinado para o ambiente profissional.</p>
         </div>
       </div>
     </div>
+
+    <!-- CARD 3 -->
     <div class="col">
       <div class="card h-100">
-        <img src="img/card2.webp" class="card-img-top" alt="...">
+        <img src="img/card2.webp" class="card-img-top" alt="Corte Americano">
         <div class="card-body">
           <h5 class="card-title">Corte Americano (Crew Cut)</h5>
-          <p class="card-text">O Corte Americano apresenta topo curto (1-2 cm) com laterais em degradê, criando um visual polido e profissional, ideal para escritórios em São Paulo ou Lisboa. É fácil de manter, mas exige cortes frequentes para manter o degradê nítido. Clássico dos anos 1920, é um favorito corporativo no Brasil e Portugal</p>
+          <p class="card-text">Topo curto (1–2 cm) com laterais em degradê. Visual polido e profissional,
+            fácil de manter e um favorito corporativo desde os anos 1920. Exige retoques frequentes
+            para manter o degradê nítido.</p>
         </div>
       </div>
     </div>
-  </div>
 
+  </div>
+</section>
+
+<!-- ── FOOTER ── -->
 <footer class="footer">
   <div class="footer-container">
 
-    <!-- LOGO / NOME -->
     <div class="footer-brand">
       <h2>DUNTER</h2>
       <p>Barbearia moderna • estilo e atitude</p>
     </div>
 
-    <!-- LINKS -->
     <div class="footer-links">
       <h4>Navegação</h4>
-      <a href="#">Home</a>
-      <a href="#">Agendar</a>
-      <a href="#">Sobre</a>
+      <a href="#" onclick="carregarPagina('home'); return false;">Home</a>
+      <a href="#" onclick="carregarPagina('galeria'); return false;">Agendar</a>
+      <a href="#" onclick="carregarPagina('sobre'); return false;">Sobre</a>
     </div>
 
-    <!-- CONTATO -->
     <div class="footer-contact">
       <h4>Contato</h4>
-      <p>📍 Joinville - SC</p>
-      <p>📞 (47) 99999-9999</p>
-      <p>✉ contato@dunter.com</p>
+      <!-- Os valores abaixo são atualizados automaticamente pelo CONFIG em scripts.js -->
+      <p>📍 <span data-config="endereco">Joinville - SC</span></p>
+      <p>📞 <span data-config="telefone">(47) 99999-9999</span></p>
+      <p>✉ <span data-config="email">contato@dunter.com</span></p>
     </div>
 
-    <!-- REDES -->
     <div class="footer-social">
       <h4>Redes</h4>
-      <a href="#">Instagram</a>
-      <a href="#">Facebook</a>
-      <a href="#">WhatsApp</a>
+      <a href="#" data-config="instagram">Instagram</a>
+      <a href="#" data-config="facebook">Facebook</a>
+      <a href="#" data-config="whatsapp">WhatsApp</a>
     </div>
 
   </div>

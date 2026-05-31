@@ -4,78 +4,87 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="css/style.css">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;600;700&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+
+  <!-- Bootstrap -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
 
-  <title>Barbearia</title>
+  <!-- Estilos do projeto -->
+  <link rel="stylesheet" href="css/style.css">
+
+  <title>Barbearia Dunter</title>
 </head>
 
 <body>
 
+<!-- ───── HEADER ───── -->
 <header>
   <nav class="navbar navbar-expand-lg">
     <div class="container-fluid">
-      <img src="img/barbeiro.png">
+      <img src="img/barbeiro.png" alt="Logo Dunter">
       <a class="navbar-brand text-light" href="index.html">DUNTER</a>
 
-      <button class="navbar-toggler text-white" type="button" data-bs-toggle="collapse" data-bs-target="#menu">
-        ☰
-      </button>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menu">☰</button>
 
       <div class="collapse navbar-collapse" id="menu">
         <ul class="navbar-nav ms-auto">
-          <li class="nav-item"><a class="nav-link text-light" href="#" onclick="carregarPagina('home'); return false;">Home</a></li>
-          <li class="nav-item"><a class="nav-link text-light" href="#" onclick="carregarPagina('galeria')">Agendar</a></li>
-          <li class="nav-item"><a class="nav-link text-light" href="#" onclick="carregarPagina('sobre')">Sobre</a></li>
+          <li class="nav-item">
+            <a class="nav-link text-light nav-btn" href="#" onclick="carregarPagina('home'); return false;">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-light nav-btn" href="#" onclick="carregarPagina('galeria'); return false;">Agendar</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-light nav-btn" href="#" onclick="carregarPagina('sobre'); return false;">Sobre</a>
+          </li>
         </ul>
       </div>
     </div>
   </nav>
 </header>
 
+<!-- ───── ASIDE ───── -->
 <aside class="aside">
-  <h1>BEM VINDO<br>A DUNTER</h1>
+  <h1>BEM VINDO<br>À DUNTER</h1>
 </aside>
+
+<!-- ───── MAIN ───── -->
 <main>
 
   <section>
-
     <div id="carouselExampleSlidesOnly" class="carousel slide" data-bs-ride="carousel">
       <div class="carousel-inner">
         <div class="carousel-item active">
-          <img src="img/aI1c6xEO-melhores-cabelos-masculinos-1024x596.webp" class="d-block w-100" alt="...">
+          <img src="img/aI1c6xEO-melhores-cabelos-masculinos-1024x596.webp" class="d-block w-100" alt="Melhores cabelos masculinos">
         </div>
         <div class="carousel-item">
-          <img src="img/corte-de-cabelo-masculino-crespo-1080x675.jpeg" class="d-block w-100" alt="...">
+          <img src="img/corte-de-cabelo-masculino-crespo-1080x675.jpeg" class="d-block w-100" alt="Corte masculino crespo">
         </div>
         <div class="carousel-item">
-          <img src="img/corte-de-cabelo-masculino.jpg" class="d-block w-100" alt="...">
+          <img src="img/corte-de-cabelo-masculino.jpg" class="d-block w-100" alt="Corte masculino">
         </div>
       </div>
     </div>
-
   </section>
-  <section id="paginas">
 
-  </section>
+  <!-- Páginas carregadas dinamicamente aqui -->
+  <section id="paginas"></section>
 
 </main>
 
-<footer class="footer">
-
-
+<!-- ───── FOOTER FIXO ───── -->
+<footer class="footer footer-index">
   <div class="footer-bottom">
     <p>© 2026 Barbearia Dunter • Todos os direitos reservados</p>
   </div>
 </footer>
+
+<!-- Scripts -->
 <script src="scripts.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+
 </body>
 </html>
-
-
-<!--Serving!                               │
-   │                                          │
-   │   - Local:    http://localhost:3000      │
-   │   - Network:  http://192.168.56.1:3000
--->
